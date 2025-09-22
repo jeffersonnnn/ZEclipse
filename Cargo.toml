@@ -1,9 +1,9 @@
 [workspace]
 members = [
-    "programs/blackout",
-    "programs/blackout-anchor",
+    "programs/zeclipse",
+    "programs/zeclipse-anchor",
     "tools/poseidon_validator",
-    "poseidon_standalone",
+    "poseidon/poseidon_standalone",
 ]
 resolver = "2"
 

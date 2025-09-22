@@ -1,8 +1,8 @@
 /**
- * BlackoutSOL Kosteneffizienz-Berechnungen
+ * ZEclipse Kosteneffizienz-Berechnungen
  * 
  * Dieses Modul enthält Funktionen zur Berechnung und Anzeige von Kosteneffizienz-Metriken
- * für BlackoutSOL-Transfers.
+ * für ZEclipse-Transfers.
  */
 
 import { PublicKey } from '@solana/web3.js';

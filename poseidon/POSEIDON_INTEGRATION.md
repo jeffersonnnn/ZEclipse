@@ -1,16 +1,16 @@
-# Poseidon-Integration in BlackoutSOL
+# Poseidon-Integration in ZEclipse
 
 *Zuletzt aktualisiert: 15. Mai 2025*
 
 ## Aktuelle Implementierung
 
-Die Poseidon-Integration in BlackoutSOL wurde vollständig überarbeitet und basiert nun auf einem eigenständigen Paket `blackout_poseidon`, das unabhängig vom Anchor-Framework funktioniert. Diese Architektur ermöglicht eine bessere Wartbarkeit, Testbarkeit und Robustheit der Poseidon-Hashingfunktionalität.
+Die Poseidon-Integration in ZEclipse wurde vollständig überarbeitet und basiert nun auf einem eigenständigen Paket `zeclipse_poseidon`, das unabhängig vom Anchor-Framework funktioniert. Diese Architektur ermöglicht eine bessere Wartbarkeit, Testbarkeit und Robustheit der Poseidon-Hashingfunktionalität.
 
 Dieses Dokument beschreibt die aktuelle Poseidon-Integration, die technischen Entscheidungen und Architekturüberlegungen.
 
 ## 🔧 Architekturelle Übersicht der Poseidon-Integration
 
-Die aktuelle Poseidon-Integration basiert auf einem eigenständigen Paket namens `blackout_poseidon`, das folgende Vorteile bietet:
+Die aktuelle Poseidon-Integration basiert auf einem eigenständigen Paket namens `zeclipse_poseidon`, das folgende Vorteile bietet:
 
 1. **Vollständige Unabhängigkeit**
    - Funktioniert ohne Anchor-Abhängigkeiten (optional als Feature aktivierbar)
@@ -33,9 +33,9 @@ Die aktuelle Poseidon-Integration basiert auf einem eigenständigen Paket namens
    - Batch-Verarbeitungstests
    - Fehlerbehandlungstests
 
-## 🚀 Integration in BlackoutSOL
+## 🚀 Integration in ZEclipse
 
-Die Integration des eigenständigen Poseidon-Pakets in BlackoutSOL erfolgt über die folgenden Komponenten:
+Die Integration des eigenständigen Poseidon-Pakets in ZEclipse erfolgt über die folgenden Komponenten:
 
 ### 1. Abhängigkeitsdeklaration
 
@@ -43,7 +43,7 @@ In der `Cargo.toml` des Hauptprojekts:
 
 ```toml
 [dependencies]
-blackout_poseidon = { path = "../../poseidon_standalone", features = ["anchor_compat"] }
+zeclipse_poseidon = { path = "../../poseidon_standalone", features = ["anchor_compat"] }
 ```
 
 Die `anchor_compat`-Feature aktiviert die Anchor-spezifischen Funktionen im Poseidon-Paket.
@@ -52,7 +52,7 @@ Die `anchor_compat`-Feature aktiviert die Anchor-spezifischen Funktionen im Pose
 
 Die Datei `poseidon_validator.rs` fungiert als Hauptintegrationspunkt und bietet:
 
-- API-Kompatibilität mit dem bestehenden BlackoutSOL-Code
+- API-Kompatibilität mit dem bestehenden ZEclipse-Code
 - Fehlerkonvertierung zwischen den Systemen
 - Konsistente Protokollierung und Diagnostik
 
@@ -61,8 +61,8 @@ Die Datei `poseidon_validator.rs` fungiert als Hauptintegrationspunkt und bietet
 Fehler werden strukturiert behandelt und konvertiert:
 
 ```rust
-pub fn blackout_poseidon_error_to_error(err: blackout_poseidon::PoseidonError) -> anchor_lang::error::Error {
-    // Konvertierung zu BlackoutSOL-Fehlertypen
+pub fn zeclipse_poseidon_error_to_error(err: zeclipse_poseidon::PoseidonError) -> anchor_lang::error::Error {
+    // Konvertierung zu ZEclipse-Fehlertypen
 }
 ```
 
@@ -72,7 +72,7 @@ Die Integration bietet Testfunktionen, die ohne Anchor-Kontext verwendet werden 
 
 ```rust
 pub fn validate_for_test() -> std::result::Result<(), String> {
-    blackout_poseidon::constants::validate_parameters()
+    zeclipse_poseidon::constants::validate_parameters()
         .map_err(|e| format!("Poseidon-Validierungsfehler: {:?}", e))
 }
 ```
@@ -130,11 +130,11 @@ pub fn validate_for_test() -> std::result::Result<(), String> {
 ### Direktes Verwenden des eigenständigen Pakets
 
 ```rust
-use blackout_poseidon::hash;
+use zeclipse_poseidon::hash;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Parameter validieren
-    blackout_poseidon::constants::validate_parameters()?;
+    zeclipse_poseidon::constants::validate_parameters()?;
     
     // Einfachen Hash generieren
     let test_input = b"Test input data";
@@ -155,7 +155,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 Verwenden Sie den eigenständigen Tester für separate Entwicklung und Tests:
 
 ```bash
-cd /Users/christopher/CODE2/BlackoutSOL/poseidon_tester
+cd /Users/christopher/CODE2/ZEclipse/poseidon_tester
 cargo run
 ```
 
@@ -164,7 +164,7 @@ cargo run
 Für Integrationstests wurde eine separate Testsuite implementiert:
 
 ```bash
-cargo test -p blackout --tests pure_poseidon_integration_test
+cargo test -p zeclipse --tests pure_poseidon_integration_test
 ```
 
 ## 📝 Architektur-Übersicht
@@ -173,7 +173,7 @@ Die Poseidon-Integration folgt nun einer klaren Schichtarchitektur:
 
 ```
 +------------------------+
-|  BlackoutSOL Program   |
+|  ZEclipse Program   |
 +------------------------+
            |
            | verwendet
@@ -190,19 +190,19 @@ Die Poseidon-Integration folgt nun einer klaren Schichtarchitektur:
 |   - bridge.rs         |
 +------------------------+
 ```
-## 💡 Verwendungsmuster für BlackoutSOL
+## 💡 Verwendungsmuster für ZEclipse
 
 ### Direkte Verwendung des unabhängigen Moduls
 
 ```rust
-use blackout::pure_poseidon::hash;
+use zeclipse::pure_poseidon::hash;
 
 fn example() -> Result<(), Box<dyn std::error::Error>> {
     // Parameter validieren
     hash::validate_parameters()?;
     
     // Hash erstellen
-    let input_data = b"BlackoutSOL secure input";
+    let input_data = b"ZEclipse secure input";
     let hash_result = hash::generate_hash(&[input_data])?;
     println!("Hash: {:?}", hash_result);
     
@@ -213,7 +213,7 @@ fn example() -> Result<(), Box<dyn std::error::Error>> {
 ### Verwendung der Anchor-kompatiblen Bridge
 
 ```rust
-use blackout::poseidon_validator;
+use zeclipse::poseidon_validator;
 use anchor_lang::prelude::*;
 
 #[program]

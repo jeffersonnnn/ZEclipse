@@ -1,16 +1,16 @@
-# BlackoutSOL - Usability Guide
+# ZEclipse - Usability Guide
 
 *Last updated: May 17, 2025*
 
 ## Introduction
 
-BlackoutSOL is an advanced privacy-enhancing solution for Solana transactions, designed to provide strong anonymity guarantees while maintaining ease of use. This document outlines how to effectively use BlackoutSOL, with special emphasis on the multi-wallet distribution feature for enhanced privacy.
+ZEclipse is an advanced privacy-enhancing solution for Solana transactions, designed to provide strong anonymity guarantees while maintaining ease of use. This document outlines how to effectively use ZEclipse, with special emphasis on the multi-wallet distribution feature for enhanced privacy.
 
 ## Core Concepts
 
 ### Privacy Through Anonymity
 
-BlackoutSOL achieves transaction privacy through a sophisticated multi-hop routing system that breaks the on-chain connection between sender and recipient. Key privacy features include:
+ZEclipse achieves transaction privacy through a sophisticated multi-hop routing system that breaks the on-chain connection between sender and recipient. Key privacy features include:
 
 - **Multi-hop Routing**: Each transaction passes through 4 hops, making it impossible to trace the flow of funds
 - **Split Distribution**: Funds are split into multiple paths, further obfuscating the transaction flow
@@ -30,15 +30,15 @@ A powerful privacy enhancement is the ability to distribute the final amount acr
 
 ### Initial Setup
 
-1. **Install a Compatible Wallet**: BlackoutSOL works with Phantom, Solflare, and other Solana wallets
+1. **Install a Compatible Wallet**: ZEclipse works with Phantom, Solflare, and other Solana wallets
 
-2. **Connect to the BlackoutSOL Interface**: Visit [https://blackoutsol.io](https://blackoutsol.io) and connect your wallet
+2. **Connect to the ZEclipse Interface**: Visit [https://blackoutsol.io](https://blackoutsol.io) and connect your wallet
 
 3. **Plan Your Wallet Structure**: For optimal privacy, create 3-6 different recipient wallets in advance
 
 ### Making Your First Privacy-Enhanced Transaction
 
-1. **Click "New Transfer"** on the BlackoutSOL interface
+1. **Click "New Transfer"** on the ZEclipse interface
 
 2. **Enter the Transfer Amount**:
    - The minimum transfer amount is 0.1 SOL
@@ -78,13 +78,13 @@ For maximum privacy benefit, follow these guidelines:
 
 ### Understanding Fee Structure
 
-When using BlackoutSOL, several types of fees apply:
+When using ZEclipse, several types of fees apply:
 
 1. **Transaction Fees**: Standard Solana network fees for each hop.
 
 2. **Reserve**: A small percentage (2%) held temporarily as part of the privacy mechanism.
 
-3. **Service Fee**: A small fee to sustain the BlackoutSOL protocol.
+3. **Service Fee**: A small fee to sustain the ZEclipse protocol.
 
 The interface will always display the complete fee breakdown before you confirm any transaction.
 
@@ -92,7 +92,7 @@ The interface will always display the complete fee breakdown before you confirm 
 
 ### Transfer Validation
 
-Each BlackoutSOL transfer includes cryptographic proof validation to ensure:
+Each ZEclipse transfer includes cryptographic proof validation to ensure:
 
 - The correct amount is transferred across hops
 - Only the intended recipient(s) can claim the funds
@@ -121,19 +121,19 @@ Refunds are processed securely and maintain the same privacy guarantees.
 
 For additional support:
 
-- Visit the [BlackoutSOL FAQ](https://blackoutsol.io/faq)
+- Visit the [ZEclipse FAQ](https://blackoutsol.io/faq)
 - Join the [Discord community](https://discord.gg/blackoutsol)
 - Contact support at support@blackoutsol.io
 
 ## Best Practices for Developers
 
-If you're integrating BlackoutSOL into your application:
+If you're integrating ZEclipse into your application:
 
-1. **Use the SDK**: The BlackoutSOL SDK simplifies integration with comprehensive documentation.
+1. **Use the SDK**: The ZEclipse SDK simplifies integration with comprehensive documentation.
 
 2. **Multi-Wallet Support**: Ensure your application can handle multiple recipient wallets for enhanced privacy.
 
-3. **Privacy Education**: Educate your users about privacy best practices when using BlackoutSOL.
+3. **Privacy Education**: Educate your users about privacy best practices when using ZEclipse.
 
 4. **Status Monitoring**: Implement the status monitoring API to track transfer progress.
 
@@ -141,6 +141,6 @@ The developer documentation is available at [https://docs.blackoutsol.io](https:
 
 ## Conclusion
 
-BlackoutSOL with multi-wallet distribution provides industrial-strength privacy for Solana transactions. By following the recommendations in this guide, you can maximize your privacy protection while enjoying a smooth user experience.
+ZEclipse with multi-wallet distribution provides industrial-strength privacy for Solana transactions. By following the recommendations in this guide, you can maximize your privacy protection while enjoying a smooth user experience.
 
-Remember that true privacy comes from both technological solutions and proper operational security practices. Use BlackoutSOL responsibly as part of your overall privacy strategy.
+Remember that true privacy comes from both technological solutions and proper operational security practices. Use ZEclipse responsibly as part of your overall privacy strategy.

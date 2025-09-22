@@ -1,0 +1,227 @@
+================================================================================
+                   BLACKOUTSOL VIDEO DEMO - FILE GUIDE
+================================================================================
+
+All files are ready. Here's what each one does:
+
+📄 START_HERE.md (7.7 KB)
+   └─ READ THIS FIRST
+   └─ Overview of what you have
+   └─ Quick start in 3 steps
+   └─ Success criteria
+
+📄 QUICK_REFERENCE.txt (7.8 KB)
+   └─ One-page cheat sheet
+   └─ Keep OPEN while recording
+   └─ Key numbers to emphasize
+   └─ What to point at each segment
+
+📄 VIDEO_SCRIPT.md (8.0 KB)
+   └─ Detailed script for each segment
+   └─ Timing for each section
+   └─ What to point at
+   └─ Camera/screen setup
+
+📄 VIDEO_TALKING_POINTS.md (8.9 KB)
+   └─ Natural language talking points
+   └─ Delivery tips (pacing, tone, emphasis)
+   └─ Things to do vs things to avoid
+   └─ Q&A prep if hosting live
+
+📄 RECORDING_SETUP.md (13 KB)
+   └─ Complete technical setup guide
+   └─ Pre-recording checklist
+   └─ Step-by-step recording flow
+   └─ OBS Studio configuration
+   └─ Post-recording checklist
+
+📄 VIDEO_DEMO_SUMMARY.md (8.5 KB)
+   └─ Complete overview of everything
+   └─ What makes the demo effective
+   └─ Success criteria
+   └─ Distribution ideas
+
+📄 QUICK_REFERENCE.txt (7.8 KB)
+   └─ One-page quick ref to keep nearby
+   └─ Key numbers
+   └─ What to point at
+   └─ Pacing guide
+
+================================================================================
+THE DEMO (Code)
+================================================================================
+
+app/src/demos/demo-video.ts
+   └─ The runnable demo code
+   └─ 7 self-contained segments
+   └─ Run with: npm run demo:video
+   └─ ~15 minutes total output
+
+================================================================================
+READING ORDER (What to Do First)
+================================================================================
+
+1. START_HERE.md
+   ↓
+2. QUICK_REFERENCE.txt (while recording)
+   ↓
+3. VIDEO_SCRIPT.md (for details)
+   ↓
+4. RECORDING_SETUP.md (to set up)
+   ↓
+5. Record!
+
+================================================================================
+THE DEMO COMMAND
+================================================================================
+
+From app/ directory:
+  npm run demo:video
+
+From BlackoutSOL/ root:
+  cd app && npm run demo:video
+
+What happens:
+  - 7 segments auto-play in sequence
+  - Clean terminal output designed for recording
+  - ~15 minutes total runtime
+
+================================================================================
+KEY NUMBERS (Memorize)
+================================================================================
+
+5,308,416    Anonymity set (48^4)
+     94/100  BlackoutSOL privacy score
+      0/100  Direct transfer privacy score
+         48  Paths per hop
+          4  Total hops
+   1-2.5 s   Transfer time
+     $0.05   Cost per transfer
+
+================================================================================
+THE NARRATIVE ARC
+================================================================================
+
+Opening (0:30)      → "Blockchain reveals your finances. Let's fix that."
+Segment 1 (2:00)    → Direct transfer is traceable (0/100 privacy)
+Segment 2 (2:00)    → Here's why: all fields are visible
+Segment 3 (3:00)    → Multi-hop routing (4 hops, 48 paths each)
+Segment 4 (2:30)    → SDK code (one function call)
+Segment 5 (2:00)    → Comparison (0/100 vs 94/100)
+Segment 6 (2:00)    → Tracing attack fails (1 in 5.3M)
+Segment 7 (1:30)    → Summary and CTA
+─────────────────────────────────────
+TOTAL: ~15 minutes (perfect YouTube length)
+
+================================================================================
+WHAT AUDIENCES SHOULD UNDERSTAND
+================================================================================
+
+After viewing, people should know:
+
+1. ✅ Why blockchain transfers are traceable (problem)
+2. ✅ How multi-hop routing hides paths (solution)
+3. ✅ Why 5.3M paths makes tracing impossible (math)
+4. ✅ It's one API call for developers (implementation)
+5. ✅ BlackoutSOL is production-ready now (status)
+
+If they understand those 5 things = success.
+
+================================================================================
+SUCCESS CRITERIA
+================================================================================
+
+Technical:
+  ✓ Audio is clear
+  ✓ Terminal is readable
+  ✓ No major stumbles
+  ✓ All 7 segments are present
+
+Content:
+  ✓ Problem-solution narrative is clear
+  ✓ Key numbers are emphasized (5.3M, 94/100)
+  ✓ Code is shown confidently
+  ✓ Comparison is obvious
+  ✓ Attack simulation makes sense
+
+Delivery:
+  ✓ Spoken naturally (not script-read)
+  ✓ Good pacing (slow problem, faster solution)
+  ✓ Genuine enthusiasm
+  ✓ Points at things on screen
+  ✓ Pauses after big moments
+
+================================================================================
+IF SOMETHING GOES WRONG
+================================================================================
+
+Demo won't run?
+  $ npm install
+  $ npm run demo:video
+
+Audio is bad?
+  → Re-record that section or start over
+
+You mess up?
+  → Keep going, edit later. Genuine > perfect.
+
+Can't remember what to say?
+  → QUICK_REFERENCE.txt is right there
+
+Terminal is hard to read?
+  → Zoom terminal to 14pt+ font
+
+================================================================================
+READY TO RECORD?
+================================================================================
+
+Checklist:
+  □ Read START_HERE.md
+  □ Read QUICK_REFERENCE.txt
+  □ Test: npm run demo:video
+  □ Set up OBS Studio
+  □ Test mic and screen capture
+  □ Clear desktop, close notifications
+  □ Open QUICK_REFERENCE.txt
+  □ Start recording
+  □ Do opening remarks (30 sec)
+  □ Run npm run demo:video
+  □ Stop recording
+
+That's it. You're ready.
+
+================================================================================
+FILES CREATED TODAY
+================================================================================
+
+app/src/demos/demo-video.ts
+START_HERE.md
+VIDEO_DEMO_SUMMARY.md
+VIDEO_SCRIPT.md
+VIDEO_TALKING_POINTS.md
+RECORDING_SETUP.md
+QUICK_REFERENCE.txt
+VIDEO_DEMO_FILES.txt (this file)
+
+================================================================================
+NEXT STEPS
+================================================================================
+
+RIGHT NOW (5 mins):
+  cd app && npm run demo:video
+
+NEXT (5 mins):
+  Read QUICK_REFERENCE.txt
+
+THEN (30 mins):
+  Read RECORDING_SETUP.md, set up OBS
+
+THEN:
+  Practice recording (don't worry about perfect)
+
+THEN:
+  Record the real video
+
+================================================================================
+YOU'RE READY. GO MAKE THE VIDEO. 🎬
+================================================================================

@@ -1,4 +1,4 @@
-# BlackoutSOL - Comprehensive Technical Documentation
+# ZEclipse - Comprehensive Technical Documentation
 
 *Last updated: May 17, 2025, 23:45 (UTC+2)*
 
@@ -74,7 +74,7 @@
      - [Extended Tests](#extended-tests)
      - [Performance Measurement](#performance-measurement)
      - [Collision Resistance Testing](#collision-resistance-testing)
-   - [blackout-anchor](#blackout-anchor)
+   - [zeclipse-anchor](#zeclipse-anchor)
      - [Anchor Framework Integration](#anchor-framework-integration)
      - [Account Structures](#account-structures)
 8. [State Management](#state-management)
@@ -120,7 +120,7 @@
 
 ## Introduction
 
-BlackoutSOL is a Solana program developed with the Anchor framework that enables privacy-enhanced transactions on the Solana blockchain. It achieves this by leveraging Zero-Knowledge Proofs (ZKPs) to obscure the direct link between senders and receivers, significantly enhancing user anonymity.
+ZEclipse is a Solana program developed with the Anchor framework that enables privacy-enhanced transactions on the Solana blockchain. It achieves this by leveraging Zero-Knowledge Proofs (ZKPs) to obscure the direct link between senders and receivers, significantly enhancing user anonymity.
 
 The system employs a multi-hop and multi-split architecture where funds are routed through multiple intermediate accounts to break the transaction graph's traceability. At each step, ZKPs are used to verify that all operations are performed correctly without revealing the actual transaction graph or intermediate values.
 
@@ -128,12 +128,12 @@ The system employs a multi-hop and multi-split architecture where funds are rout
 
 ## System Architecture
 
-BlackoutSOL is built with a modular architecture to ensure robustness, maintainability, and security:
+ZEclipse is built with a modular architecture to ensure robustness, maintainability, and security:
 
 ```
-BlackoutSOL
+ZEclipse
 ├── programs
-│   ├── blackout                // Main program logic
+│   ├── zeclipse                // Main program logic
 │   │   ├── src
 │   │   │   ├── instructions/   // Hauptmodul für alle Programmoperationen
 │   │   │   │   ├── batch_hop.rs    // Batch-Hop-Ausführungslogik
@@ -155,7 +155,7 @@ BlackoutSOL
 │   │   │   ├── entrypoint.rs   // Programmeinstiegspunkt
 │   │   │   └── lib.rs          // Bibliotheksexports
 │   │   └── examples/           // Usage examples
-│   └── blackout-anchor         // Anchor framework integration
+│   └── zeclipse-anchor         // Anchor framework integration
 │       └── src
 │           └── anchor_accounts.rs // Anchor account structures
 ├── poseidon_standalone         // Standalone Poseidon implementation
@@ -175,7 +175,7 @@ The system uses the following key components:
 
 ### Multi-Hop Architecture and Anonymization Process
 
-Each transfer in BlackoutSOL traverses 4 sequential hops, with each hop implementing the following execution logic:
+Each transfer in ZEclipse traverses 4 sequential hops, with each hop implementing the following execution logic:
 
 1. **State Validation**: Verify the current hop state and ensure it's ready for processing
 2. **Proof Verification**: Use HyperPlonk to verify the cryptographic proof for this hop
@@ -189,7 +189,7 @@ This architecture ensures:
 - **State Consistency**: Each hop maintains and verifies the complete transfer state
 - **Cleanup**: Intermediate states are properly cleaned up after each hop
 
-BlackoutSOL implements a multi-hop architecture where funds travel through a series of intermediate hops before reaching their final destination. This multi-hop approach is fundamental to achieving anonymization on the transparent Solana blockchain.
+ZEclipse implements a multi-hop architecture where funds travel through a series of intermediate hops before reaching their final destination. This multi-hop approach is fundamental to achieving anonymization on the transparent Solana blockchain.
 
 #### How Anonymization Happens
 
@@ -228,7 +228,7 @@ The system achieves anonymization through the combination of these techniques, m
 
 ## Temporal Obfuscation
 
-Temporal obfuscation is a critical privacy enhancement for the BlackoutSOL protocol that prevents timing correlation attacks and significantly increases the effective anonymity set size. By introducing controlled randomness in transaction timing, this feature makes it substantially more difficult for observers to link transfers across multiple hops or to identify related transactions.
+Temporal obfuscation is a critical privacy enhancement for the ZEclipse protocol that prevents timing correlation attacks and significantly increases the effective anonymity set size. By introducing controlled randomness in transaction timing, this feature makes it substantially more difficult for observers to link transfers across multiple hops or to identify related transactions.
 
 > **Implementation Status**: ✅ **VOLLSTÄNDIG IMPLEMENTIERT und GETESTET**
 > Die temporale Verschleierungskomponente ist vollständig implementiert, in den DApp-Connector integriert und umfassend getestet. Alle 11 Tests für die Komponente werden erfolgreich durchlaufen, und die Typsicherheit aller Schnittstellen ist gewährleistet.
@@ -248,7 +248,7 @@ The temporal obfuscation system consists of three main components, all vollstän
    - Handles diagnostic information collection for privacy assessment
 
 3. **TimingConnector**: Integration layer between temporal obfuscation and the DApp connector
-   - Connects the temporal obfuscation system with the BlackoutSOL DApp interface
+   - Connects the temporal obfuscation system with the ZEclipse DApp interface
    - Implements strategy selection and timing parameter management
    - Enhances the anonymity set calculations with temporal factors
 
@@ -275,7 +275,7 @@ const timeSliceMap = await obfuscator.obfuscateMultiTransfer(transactions, hopIn
 
 #### Adaptive Timing Strategies
 
-BlackoutSOL provides multiple timing strategies that automatically adjust based on transfer characteristics:
+ZEclipse provides multiple timing strategies that automatically adjust based on transfer characteristics:
 
 - **MINIMAL**: Faster transfers with basic timing obfuscation (200ms-2s delays)
 - **STANDARD**: Balanced approach with moderate privacy (500ms-8s delays)
@@ -296,13 +296,13 @@ Delay times aren't just random - they incorporate entropy based on execution pat
 
 #### Anonymity Set Enhancement
 
-The temporal obfuscation system dramatically increases the effective anonymity set size of BlackoutSOL transfers. While the base system already provides an anonymity set of approximately 5.3 million paths (48^4), temporal obfuscation can increase this by a factor of 1-5x depending on the timing strategy used.
+The temporal obfuscation system dramatically increases the effective anonymity set size of ZEclipse transfers. While the base system already provides an anonymity set of approximately 5.3 million paths (48^4), temporal obfuscation can increase this by a factor of 1-5x depending on the timing strategy used.
 
 For example, with the MAXIMUM_PRIVACY strategy, the effective anonymity set increases to over 20 million distinct paths.
 
 #### Resistance to Timing Correlation Attacks
 
-BlackoutSOL's temporal obfuscation provides strong protection against these common timing attacks:
+ZEclipse's temporal obfuscation provides strong protection against these common timing attacks:
 
 1. **Hop-to-Hop Correlation**: By using different delay characteristics for each hop, observers cannot correlate transactions across hops based on timing patterns.
 
@@ -611,21 +611,21 @@ private calculateCorrelationResistance(): number {
 
 ### Integration with DApp Connector
 
-The `TimingEnhancedConnector` extends the standard `BlackoutDAppConnector` with temporal obfuscation capabilities. This section provides detailed technical information on how to integrate timing privacy into your BlackoutSOL applications.
+The `TimingEnhancedConnector` extends the standard `ZEclipseDAppConnector` with temporal obfuscation capabilities. This section provides detailed technical information on how to integrate timing privacy into your ZEclipse applications.
 
 #### Class Architecture and Inheritance
 
 ```typescript
 /**
  * TimingEnhancedConnector provides temporal obfuscation capabilities
- * for BlackoutSOL transfers by extending the base DApp connector.
+ * for ZEclipse transfers by extending the base DApp connector.
  */
-export class TimingEnhancedConnector extends BlackoutDAppConnector {
+export class TimingEnhancedConnector extends ZEclipseDAppConnector {
   /** Timing connector for managing temporal obfuscation */
   private timingConnector: TimingConnector;
   
   /**
-   * Create a new timing-enhanced connector for BlackoutSOL
+   * Create a new timing-enhanced connector for ZEclipse
    * 
    * @param config DApp configuration object
    * @param defaultStrategy Optional default timing strategy
@@ -648,7 +648,7 @@ export class TimingEnhancedConnector extends BlackoutDAppConnector {
 
 #### Integration Points
 
-The connector provides seamless integration with the existing BlackoutSOL API while adding timing privacy features:
+The connector provides seamless integration with the existing ZEclipse API while adding timing privacy features:
 
 ```typescript
 /**
@@ -860,14 +860,14 @@ console.log(`Ihre Transaktion wird in ca. ${formatTimeRemaining(estimatedTime)} 
 
 ### Overview
 
-The BlackoutSOL DApp Connector provides a clean, efficient interface for external web applications to integrate with the BlackoutSOL privacy protocol. It abstracts the complexities of anonymous transfers while exposing a simple API for developers.
+The ZEclipse DApp Connector provides a clean, efficient interface for external web applications to integrate with the ZEclipse privacy protocol. It abstracts the complexities of anonymous transfers while exposing a simple API for developers.
 
 ### Integration Steps
 
 #### 1. Initialize the Connector
 
 ```typescript
-import { BlackoutDAppConnector, DAppConfig } from '@blackoutsol/connector';
+import { ZEclipseDAppConnector, DAppConfig } from '@zeclipse/connector';
 
 const config: DAppConfig = {
   rpcUrl: 'https://api.mainnet-beta.solana.com',
@@ -875,7 +875,7 @@ const config: DAppConfig = {
   useDevnet: false // Set to true for development
 };
 
-const connector = new BlackoutDAppConnector(config);
+const connector = new ZEclipseDAppConnector(config);
 await connector.initialize();
 ```
 
@@ -930,7 +930,7 @@ console.log(`Savings vs. baseline: ${efficiency.savingsVsBaseline} lamports`);
 For applications requiring maximum privacy protection, you can use the Timing-Enhanced Connector:
 
 ```typescript
-import { TimingEnhancedConnector, TimingStrategy } from '@blackoutsol/connector';
+import { TimingEnhancedConnector, TimingStrategy } from '@zeclipse/connector';
 
 // Create a timing-enhanced connector with custom strategy
 const connector = new TimingEnhancedConnector(
@@ -976,13 +976,13 @@ console.log(`Privacy score: ${response.timingStats.correlationResistance}/100`);
 The connector provides detailed error codes for precise error handling:
 
 ```typescript
-import { BlackoutErrorCode } from '@blackoutsol/connector';
+import { ZEclipseErrorCode } from '@zeclipse/connector';
 
 // Example error handling
-if (response.error?.includes(BlackoutErrorCode.INSUFFICIENT_FUNDS)) {
+if (response.error?.includes(ZEclipseErrorCode.INSUFFICIENT_FUNDS)) {
   // Handle insufficient funds error
   showNotification("Your wallet doesn't have enough SOL for this transfer");
-} else if (response.error?.includes(BlackoutErrorCode.PROOF_VERIFICATION_FAILED)) {
+} else if (response.error?.includes(ZEclipseErrorCode.PROOF_VERIFICATION_FAILED)) {
   // Handle proof verification failure
   showNotification("Transfer failed due to proof verification issue");
 } else if (response.error) {
@@ -1132,11 +1132,11 @@ This creates a situation where the actual transaction path is hidden among milli
 
 ## Zero-Knowledge Proofs
 
-Zero-Knowledge Proofs (ZKPs) are the cryptographic foundation of BlackoutSOL's privacy features. They allow the system to verify critical properties of transactions without revealing sensitive information.
+Zero-Knowledge Proofs (ZKPs) are the cryptographic foundation of ZEclipse's privacy features. They allow the system to verify critical properties of transactions without revealing sensitive information.
 
-### How ZKPs Enable Anonymity in BlackoutSOL
+### How ZKPs Enable Anonymity in ZEclipse
 
-Zero-Knowledge Proofs are used throughout the BlackoutSOL system to achieve anonymity while maintaining verifiability:
+Zero-Knowledge Proofs are used throughout the ZEclipse system to achieve anonymity while maintaining verifiability:
 
 1. **Concealing Transaction Graph**: ZKPs allow verifying that funds follow a valid path without revealing the actual path
 
@@ -1152,7 +1152,7 @@ The combination of these ZKP applications creates a system where transactions ca
 
 ### Poseidon Hash Function: ZKP-Friendly Cryptography
 
-BlackoutSOL uses the Poseidon hash function, which is specifically optimized for ZKP systems. Unlike traditional hash functions like SHA-256, Poseidon is designed to be efficiently represented in arithmetic circuits used in ZKP systems.
+ZEclipse uses the Poseidon hash function, which is specifically optimized for ZKP systems. Unlike traditional hash functions like SHA-256, Poseidon is designed to be efficiently represented in arithmetic circuits used in ZKP systems.
 
 #### Technical Implementation
 
@@ -1213,7 +1213,7 @@ Range proofs are a critical ZKP application that allows proving a value is withi
 
 #### Technical Implementation
 
-BlackoutSOL uses custom range proofs implemented with the Plonky2 proving system:
+ZEclipse uses custom range proofs implemented with the Plonky2 proving system:
 
 ```rust
 // Pseudo-code for range proof generation
@@ -1237,7 +1237,7 @@ pub fn generate_range_proof(
 }
 ```
 
-#### Applications in BlackoutSOL
+#### Applications in ZEclipse
 
 Range proofs are used throughout the system to ensure:
 
@@ -1269,7 +1269,7 @@ Range proofs are used throughout the system to ensure:
 
 ### HyperPlonk Proofs: Advanced Cryptographic Verification
 
-HyperPlonk is a specific ZKP system used in BlackoutSOL for high-efficiency verification of complex statements.
+HyperPlonk is a specific ZKP system used in ZEclipse for high-efficiency verification of complex statements.
 
 #### Cryptographic Foundation
 
@@ -1283,7 +1283,7 @@ HyperPlonk builds on the PLONK proof system with several optimizations:
 
 4. **Recursive Composition**: Proofs can verify other proofs, enabling complex nested verification
 
-#### Implementation in BlackoutSOL
+#### Implementation in ZEclipse
 
 HyperPlonk proofs are used for the most complex verification tasks:
 
@@ -1321,7 +1321,7 @@ Merkle proofs allow proving membership in a set without revealing the entire set
 
 #### Technical Implementation
 
-BlackoutSOL uses Poseidon-based Merkle trees for efficient ZK-friendly membership proofs:
+ZEclipse uses Poseidon-based Merkle trees for efficient ZK-friendly membership proofs:
 
 ```rust
 // Pseudo-code for Merkle proof verification
@@ -1352,7 +1352,7 @@ pub fn verify_merkle_proof(
 }
 ```
 
-#### Applications in BlackoutSOL
+#### Applications in ZEclipse
 
 Merkle proofs serve multiple anonymity-enhancing functions:
 
@@ -1376,7 +1376,7 @@ Merkle proofs serve multiple anonymity-enhancing functions:
 
 ### Batch Verification: Scalable ZKP Validation
 
-To operate efficiently within Solana's compute limits, BlackoutSOL implements batch verification of ZKPs.
+To operate efficiently within Solana's compute limits, ZEclipse implements batch verification of ZKPs.
 
 #### Technical Implementation
 
@@ -1417,11 +1417,11 @@ Batch verification significantly improves performance:
 
 4. **More Complex Proofs**: Enables verification of more sophisticated ZK circuits
 
-This allows BlackoutSOL to use more advanced zero-knowledge techniques while staying within Solana's performance constraints.
+This allows ZEclipse to use more advanced zero-knowledge techniques while staying within Solana's performance constraints.
 
 ### ZKP Performance Optimizations
 
-BlackoutSOL implements several optimizations to make ZKP verification practical on-chain:
+ZEclipse implements several optimizations to make ZKP verification practical on-chain:
 
 #### Solana-Specific Optimizations
 
@@ -1457,11 +1457,11 @@ These optimizations are crucial for making privacy-preserving transactions pract
 
 ## Kosteneffizienz-Optimierungen
 
-BlackoutSOL implementiert mehrere fortschrittliche Techniken zur Maximierung der Kosteneffizienz, ohne Kompromisse bei der Anonymität einzugehen. Diese Optimierungen sind entscheidend für ein benutzerfreundliches Protokoll auf Solana, wo Transaktionskosten und Account-Rent wichtige Faktoren sind.
+ZEclipse implementiert mehrere fortschrittliche Techniken zur Maximierung der Kosteneffizienz, ohne Kompromisse bei der Anonymität einzugehen. Diese Optimierungen sind entscheidend für ein benutzerfreundliches Protokoll auf Solana, wo Transaktionskosten und Account-Rent wichtige Faktoren sind.
 
 ### Rent-Management
 
-Eine kritische Kostenkomponente auf Solana ist die "Rent" - Lamports, die für die Speicherung von Daten in der Blockchain bezahlt werden müssen. BlackoutSOL implementiert eine aggressive Rent-Optimierungsstrategie:
+Eine kritische Kostenkomponente auf Solana ist die "Rent" - Lamports, die für die Speicherung von Daten in der Blockchain bezahlt werden müssen. ZEclipse implementiert eine aggressive Rent-Optimierungsstrategie:
 
 ```rust
 // Kostenoptimierung: Verbleibende Lamports über der Rent-Exempt-Schwelle zurückholen
@@ -1490,7 +1490,7 @@ Die Berechnung basiert auf der Accountgröße und den aktuellen Solana-Netzwerkp
 
 ### Account-Lebenszyklus
 
-BlackoutSOL implementiert einen vollständigen Account-Lebenszyklus-Management-Ansatz:
+ZEclipse implementiert einen vollständigen Account-Lebenszyklus-Management-Ansatz:
 
 ```rust
 // In Finalize-Instruction, automatisches Schließen des TransferState-Accounts
@@ -1498,8 +1498,8 @@ BlackoutSOL implementiert einen vollständigen Account-Lebenszyklus-Management-A
     mut,
     seeds = [b"transfer", transfer_state.owner.as_ref()],
     bump = transfer_state.bump,
-    constraint = !transfer_state.completed @ BlackoutError::TransferAlreadyCompleted,
-    constraint = transfer_state.current_hop == 4 @ BlackoutError::TransferNotComplete,
+    constraint = !transfer_state.completed @ ZEclipseError::TransferAlreadyCompleted,
+    constraint = transfer_state.current_hop == 4 @ ZEclipseError::TransferNotComplete,
     close = primary_recipient  // Automatisches Schließen und Rückerstattung
 )]
 pub transfer_state: Account<'info, TransferState>,
@@ -1560,7 +1560,7 @@ Die Multi-Wallet-Distribution bietet folgende Kostenvorteile:
 2. **Konstante Komplexität**: Die Transaktionskosten steigen nur minimal mit der Anzahl der Wallets
 3. **Effiziente Rent-Handhabung**: Keine zusätzlichen temporären Accounts für die Verteilung
 
-Die Kombination dieser Optimierungen macht BlackoutSOL nicht nur sicher und privat, sondern auch kostengünstig für Endbenutzer, was die Massenadoption fördert.
+Die Kombination dieser Optimierungen macht ZEclipse nicht nur sicher und privat, sondern auch kostengünstig für Endbenutzer, was die Massenadoption fördert.
 
 ### Benchmark-Ergebnisse
 
@@ -1592,7 +1592,7 @@ Für eine detaillierte Benchmark-Analyse siehe die vollständigen Benchmark-Beri
 
 ## Custom Crates
 
-BlackoutSOL relies on several custom-built crates that provide specialized functionality for cryptographic operations, zero-knowledge proofs, and Solana blockchain integration. These crates are designed to work together while maintaining clear separation of concerns for better maintainability and security.
+ZEclipse relies on several custom-built crates that provide specialized functionality for cryptographic operations, zero-knowledge proofs, and Solana blockchain integration. These crates are designed to work together while maintaining clear separation of concerns for better maintainability and security.
 
 ### poseidon_standalone
 
@@ -1810,9 +1810,9 @@ pub fn test_collision_resistance() -> Result<(), String> {
 
 These tests validate that the Poseidon implementation maintains its cryptographic guarantees, which are essential for the security of the zero-knowledge proofs used throughout the system.
 
-### blackout-anchor
+### zeclipse-anchor
 
-The `blackout-anchor` crate provides a specialized bridge between the Anchor Framework and the main BlackoutSOL program, resolving naming conflicts and ensuring clean integration.
+The `zeclipse-anchor` crate provides a specialized bridge between the Anchor Framework and the main ZEclipse program, resolving naming conflicts and ensuring clean integration.
 
 #### Anchor Framework Integration
 
@@ -1820,7 +1820,7 @@ The crate implements the Anchor program module with all transaction instructions
 
 ```rust
 #[program]
-pub mod blackout_anchor {
+pub mod zeclipse_anchor {
     // Initialize a new anonymous transfer
     pub fn initialize(
         ctx: Context<Initialize>,
@@ -1911,7 +1911,7 @@ pub struct TransferState {
     pub fake_bloom: [u8; 16],
     
     // Configuration and accounting
-    pub config: BlackoutConfig,
+    pub config: ZEclipseConfig,
     pub bump: u8,
     pub batch_count: u8,
     pub total_fees: u64,
@@ -1932,10 +1932,10 @@ The `TransferState` stores all the information needed to track a privacy-enhance
 
 ### Configuration
 
-The system uses a `BlackoutConfig` structure to define the parameters for the privacy mechanisms:
+The system uses a `ZEclipseConfig` structure to define the parameters for the privacy mechanisms:
 
 ```rust
-pub struct BlackoutConfig {
+pub struct ZEclipseConfig {
     pub num_hops: u8,           // Number of hops (default: 4)
     pub real_splits: u8,         // Number of real splits per hop (default: 4)
     pub fake_splits: u8,         // Number of fake splits per hop (default: 44)
@@ -1949,7 +1949,7 @@ These parameters can be adjusted by the system authority to balance privacy, cos
 
 ## Instructions
 
-BlackoutSOL provides the following primary instructions:
+ZEclipse provides the following primary instructions:
 
 ### Initialize
 
@@ -2012,7 +2012,7 @@ The `reveal_fake_split` instruction allows proving that a specific split was fak
 
 ## Enhanced PDA Validation Logic
 
-One of the key security improvements in BlackoutSOL is the enhanced Program Derived Account (PDA) validation logic, which provides strong cryptographic assurances for transaction routing.
+One of the key security improvements in ZEclipse is the enhanced Program Derived Account (PDA) validation logic, which provides strong cryptographic assurances for transaction routing.
 
 ### Dual-path Validation Strategy
 
@@ -2026,7 +2026,7 @@ The PDA validation system uses a sophisticated dual-path strategy:
 
 #### Bloom Filter Implementation
 
-The BlackoutSOL system leverages a specialized Bloom filter implementation optimized for privacy-preserving transaction validation. This section details the technical implementation, security considerations, and performance characteristics of our Bloom filter approach.
+The ZEclipse system leverages a specialized Bloom filter implementation optimized for privacy-preserving transaction validation. This section details the technical implementation, security considerations, and performance characteristics of our Bloom filter approach.
 
 ##### Technical Implementation
 
@@ -2035,7 +2035,7 @@ The Bloom filter is implemented as a fixed-size 16-byte array (128 bits) that ef
 ```rust
 // Generate a Bloom filter based on configuration parameters
 pub fn generate_bloom_filter(
-    config: &BlackoutConfig,  // System configuration (hops, real/fake splits)
+    config: &ZEclipseConfig,  // System configuration (hops, real/fake splits)
     _challenge: &[u8; 32],    // Challenge value (currently not utilized)
 ) -> [u8; 16] {               // Returns a 16-byte Bloom filter
     let mut bloom_filter = [0u8; 16];
@@ -2132,7 +2132,7 @@ The implementation has been tested against various attack vectors:
 
 #### PDA Validation System
 
-The Program Derived Address (PDA) validation system is a critical security component in BlackoutSOL that ensures transaction integrity while maintaining privacy. This section provides a detailed technical overview of its implementation and security properties.
+The Program Derived Address (PDA) validation system is a critical security component in ZEclipse that ensures transaction integrity while maintaining privacy. This section provides a detailed technical overview of its implementation and security properties.
 
 ##### Technical Implementation
 
@@ -2147,7 +2147,7 @@ pub fn validate_stealth_pda(
     split_index: u8,            // Split index within the hop
     bloom_filter: &[u8; 16],    // Bloom filter for fake split verification
     pda_account: &AccountInfo   // Account to validate
-) -> Result<bool, BlackoutError> {
+) -> Result<bool, ZEclipseError> {
     // Primary validation path: Cryptographic PDA derivation check
     let (expected_pda, _bump) = derive_stealth_pda(
         program_id,
@@ -2168,7 +2168,7 @@ pub fn validate_stealth_pda(
     }
     
     // If neither validation path succeeds, the PDA is invalid
-    Err(BlackoutError::InvalidStealthPDA)
+    Err(ZEclipseError::InvalidStealthPDA)
 }
 ```
 
@@ -2271,7 +2271,7 @@ The on-chain implementation of the PDA validation system has been optimized for 
 
 ##### Integration with Cryptographic Primitives
 
-The PDA validation system integrates with BlackoutSOL's broader cryptographic infrastructure:
+The PDA validation system integrates with ZEclipse's broader cryptographic infrastructure:
 
 1. **Zero-Knowledge Proof Integration**
    - The PDA validation results can be included in ZK proofs without revealing the path
@@ -2323,7 +2323,7 @@ These benchmarks demonstrate that:
 
 ## Security Audit Preparation
 
-The BlackoutSOL system has undergone extensive internal security assessments and is prepared for external security audits. This section outlines the security considerations, audit-ready components, and verification methodologies that have been implemented.
+The ZEclipse system has undergone extensive internal security assessments and is prepared for external security audits. This section outlines the security considerations, audit-ready components, and verification methodologies that have been implemented.
 
 ### Comprehensive Testing Strategy
 
@@ -2331,7 +2331,7 @@ The project employs a multi-layered testing strategy to ensure security, robustn
 
 #### Unit Testing
 
-Every core component of BlackoutSOL has comprehensive unit tests covering:
+Every core component of ZEclipse has comprehensive unit tests covering:
 
 1. **Input Validation**: Tests for all boundary conditions and invalid inputs
 2. **Error Handling**: Verification of proper error propagation and handling
@@ -2378,7 +2378,7 @@ The following components have been specifically prepared for external security a
 
 ### Specific Security Guarantees
 
-The BlackoutSOL system provides the following formal security guarantees:
+The ZEclipse system provides the following formal security guarantees:
 
 #### Transaction Privacy
 
@@ -2472,7 +2472,7 @@ These optimizations are particularly important for multi-hop transfers where val
 
 ### Plonky2 Range Proofs
 
-BlackoutSOL implements Plonky2 for efficient range proofs with the following specifications:
+ZEclipse implements Plonky2 for efficient range proofs with the following specifications:
 
 ```rust
 pub fn verify_range_proof(proof_data: &[u8; 128], commitments: &[[u8; 32]; 8], challenge: &[u8; 32]) -> Result<()> {
@@ -2512,7 +2512,7 @@ pub fn verify_hyperplonk_proof(proof_data: &[u8; 128], challenge: &[u8; 32]) -> 
     
     // Validate the protocol signature
     if signature[0] != 0x50 || signature[1] != 0x53 {
-        return Err(BlackoutError::InvalidProofSignature.into());
+        return Err(ZEclipseError::InvalidProof.into());
     }
     
     // Four main verification steps:
@@ -2539,7 +2539,7 @@ pub fn verify_hyperplonk_proof(proof_data: &[u8; 128], challenge: &[u8; 32]) -> 
     if commitment_valid && lin_comb_valid && perm_arg_valid && plookup_valid {
         Ok(())
     } else {
-        Err(BlackoutError::ProofVerificationFailed.into())
+        Err(ZEclipseError::ProofVerificationFailed.into())
     }
 }
 ```
@@ -2551,7 +2551,7 @@ This implementation provides:
 
 ### Poseidon Hashing Implementation
 
-BlackoutSOL implements a complete Solana-compatible Poseidon hashing algorithm optimized for ZKPs:
+ZEclipse implements a complete Solana-compatible Poseidon hashing algorithm optimized for ZKPs:
 
 ```rust
 use solana_poseidon::{hashv, Parameters, Endianness, PoseidonHash};
@@ -2567,7 +2567,7 @@ pub fn poseidon_hash_commitments(commitments: &[[u8; 32]; 8]) -> Result<[u8; 32]
     
     match crate::poseidon_validator::generate_zk_hash(&commitment_slices) {
         Ok(hash) => Ok(hash),
-        Err(_) => Err(BlackoutError::HashingError.into())
+        Err(_) => Err(ZEclipseError::HashingError.into())
     }
 }
 ```
@@ -2604,7 +2604,7 @@ pub fn derive_stealth_pda(
     // Generate PDA with the derived seed
     Pubkey::find_program_address(
         &[
-            b"blackout",
+            b"zeclipse",
             seed_prefix,
             &[hop_index],
             &[split_index],
@@ -2695,7 +2695,7 @@ This hop execution logic ensures:
 
 ### Security Considerations
 
-BlackoutSOL implements comprehensive security measures:
+ZEclipse implements comprehensive security measures:
 
 1. **Input Validation**:
    - All user inputs undergo rigorous validation
@@ -2719,7 +2719,7 @@ BlackoutSOL implements comprehensive security measures:
 
 ### Performance Characteristics
 
-BlackoutSOL delivers the following performance metrics:
+ZEclipse delivers the following performance metrics:
 
 1. **Execution Speed**:
    - Transfer initialization: 500-800ms
@@ -2798,7 +2798,7 @@ For a typical 1 SOL transfer, costs are as follows:
 ### Mid-term Enhancements (3-6 months)
 
 1. **ZKP Circuit Optimization**
-   - Custom arithmetic circuits for BlackoutSOL constraints
+   - Custom arithmetic circuits for ZEclipse constraints
    - Reduced proof size and verification cost
    - Could reduce verify time by ~30%
 
@@ -2823,7 +2823,7 @@ For a typical 1 SOL transfer, costs are as follows:
 
 ### Build Environment
 
-BlackoutSOL requires the following build environment:
+ZEclipse requires the following build environment:
 
 - Rust (latest stable version)
 - Solana CLI tools (latest version)
@@ -2835,10 +2835,10 @@ Due to the complexity of the Anchor framework's interaction with custom cryptogr
 
 ```bash
 # For development and library compilation
-cargo check --package blackout --features no-entrypoint
+cargo check --package zeclipse --features no-entrypoint
 
 # For testing Poseidon functionality
-cargo test --package blackout --lib --features no-entrypoint
+cargo test --package zeclipse --lib --features no-entrypoint
 ```
 
 These commands work around the Anchor macro expansion issue by disabling the entrypoint while still fully utilizing the Poseidon functionality.
@@ -2857,7 +2857,7 @@ The project implements a comprehensive testing strategy:
 
 ## DApp Integration
 
-The following section provides a step-by-step guide for integrating BlackoutSOL into your DApp. Mit der vollständigen Integration der temporalen Verschleierungskomponente bietet BlackoutSOL nun erweiterte Privatsphärenschutzfunktionen.
+The following section provides a step-by-step guide for integrating ZEclipse into your DApp. Mit der vollständigen Integration der temporalen Verschleierungskomponente bietet ZEclipse nun erweiterte Privatsphärenschutzfunktionen.
 
 1. **Install Dependencies**:
 
@@ -2865,7 +2865,7 @@ The following section provides a step-by-step guide for integrating BlackoutSOL 
 // Add to your package.json
 {
   "dependencies": {
-    "blackout-sol": "^0.1.0",
+    "zeclipse-sol": "^0.1.0",
     "@solana/web3.js": "^1.73.0",
     "@solana/anchor": "^0.26.0"
   }
@@ -2938,7 +2938,7 @@ The following section provides a step-by-step guide for integrating BlackoutSOL 
 
 ### System Integration
 
-For integrating BlackoutSOL into larger systems:
+For integrating ZEclipse into larger systems:
 
 1. **API Gateway**: Develop an API gateway to abstract away the complexity of ZKP generation
 2. **Wallet Integration**: Provide SDK plugins for popular Solana wallets
@@ -2947,4 +2947,4 @@ For integrating BlackoutSOL into larger systems:
 
 ---
 
-This documentation provides a comprehensive overview of the BlackoutSOL system. For updates, security disclosures, or contributions, please refer to the project repository.
+This documentation provides a comprehensive overview of the ZEclipse system. For updates, security disclosures, or contributions, please refer to the project repository.

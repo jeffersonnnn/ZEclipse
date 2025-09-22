@@ -1,14 +1,14 @@
 /**
- * Timing-Enhanced DApp Connector for BlackoutSOL
+ * Timing-Enhanced DApp Connector for ZEclipse
  * 
  * This connector extends the standard DApp connector with advanced
  * temporal obfuscation features to prevent timing correlation attacks.
  * It integrates the timing privacy components to provide maximum
- * anonymity for BlackoutSOL transfers.
+ * anonymity for ZEclipse transfers.
  */
 
 import { Connection, Keypair, PublicKey, Transaction } from '@solana/web3.js';
-import { BlackoutDAppConnector, DAppConfig, TransferRequest, TransferResponse } from './dapp-connector';
+import { ZEclipseDAppConnector, DAppConfig, TransferRequest, TransferResponse } from './dapp-connector';
 import { TimingConnector, TimingStrategy, TimingStats } from '../timing/timing-connector';
 import { TemporalObfuscationConfig } from '../timing/temporal-obfuscation';
 import { EfficiencyResult } from '../efficiency/cost-efficiency';
@@ -38,10 +38,10 @@ export interface TimingEnhancedTransferResponse extends TransferResponse {
 /**
  * Timing-Enhanced DApp Connector
  * 
- * This connector extends the standard BlackoutDAppConnector with
+ * This connector extends the standard ZEclipseDAppConnector with
  * advanced temporal obfuscation features for maximum privacy.
  */
-export class TimingEnhancedConnector extends BlackoutDAppConnector {
+export class TimingEnhancedConnector extends ZEclipseDAppConnector {
   private timingConnector: TimingConnector;
   private defaultTimingStrategy: TimingStrategy;
   

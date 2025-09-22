@@ -1,0 +1,209 @@
+================================================================================
+                    BLACKOUTSOL VIDEO DEMO - QUICK REFERENCE
+================================================================================
+
+RUNTIME: ~15 minutes total
+COMMAND: npm run demo:video
+
+KEY NUMBERS TO EMPHASIZE:
+  • 5,308,416 (anonymity set size)
+  • 48^4 (4 hops × 48 paths each)
+  • 94/100 (privacy score)
+  • 1-2.5 seconds (transfer speed)
+  • 0/100 (direct transfer privacy)
+
+SEGMENTS IN ORDER:
+  1. THE PROBLEM       (1:30-2:00 min)  - Direct transfer is traceable
+  2. CODE: DIRECT      (1:30-2:00 min)  - Show sender/recipient/amount visible
+  3. THE SOLUTION      (2:30-3:00 min)  - 4 hops, 48 paths each
+  4. CODE: PRIVACY     (2:00-2:30 min)  - SDK implementation
+  5. COMPARISON        (1:30-2:00 min)  - Side-by-side privacy metrics
+  6. TRACING ATTACK    (1:30-2:00 min)  - Why observer can't find path
+  7. SUMMARY           (1:30 min)       - Wrap-up with key takeaways
+
+================================================================================
+OPENING STATEMENT (30 seconds):
+================================================================================
+
+"Every transaction on the blockchain is a permanent fingerprint of your 
+financial activity. Today, I'm going to show you how to hide that fingerprint.
+
+We'll trace a simple transaction: Alice sends 1 SOL to Bob. First the normal 
+way—which is completely traceable. Then the private way—where they can't."
+
+================================================================================
+KEY TALKING POINTS (Don't memorize, just internalize):
+================================================================================
+
+PROBLEM SEGMENT:
+  ✓ "All four pieces of information are permanent on chain"
+  ✓ "Anyone can track your financial history"
+  ✓ "Privacy score: 0 out of 100"
+
+DIRECT CODE SEGMENT:
+  ✓ Point at fromPubkey → "Visible on chain"
+  ✓ Point at toPubkey → "Visible on chain"  
+  ✓ Point at amount → "Visible on chain"
+
+SOLUTION SEGMENT:
+  ✓ "Instead of direct, funds travel through 4 hops"
+  ✓ "Each hop splits into 48 paths—4 real, 44 fake"
+  ✓ "An observer sees all 48 but doesn't know which are real"
+  ✓ [BUILD TO]: "By hop 4, there are 5.3 million possible paths"
+
+PRIVACY CODE SEGMENT:
+  ✓ "For developers, it's one function call"
+  ✓ "You don't need to understand the cryptography"
+  ✓ "Privacy becomes the default"
+
+COMPARISON SEGMENT:
+  ✓ [SLOW DOWN] Point at Direct column → "Everything visible"
+  ✓ [PAUSE] Point at BlackoutSOL column → "Everything hidden"
+  ✓ "Privacy score: 0 vs 94 out of 100"
+  ✓ "Anonymity set: 1 vs 5.3 million"
+
+TRACING ATTACK SEGMENT:
+  ✓ "Imagine an attacker trying to trace Alice's path"
+  ✓ "Hop 1: 1 in 48 chance"
+  ✓ "Hop 2: 1 in 2,304 chance"
+  ✓ "Hop 3: 1 in 110,592 chance"
+  ✓ "Hop 4: 1 in 5,308,416 chance (impossible)"
+
+SUMMARY SEGMENT:
+  ✓ "One function call gives you 5.3 million anonymity"
+  ✓ "Production-ready today"
+  ✓ "Military-grade privacy without sacrificing speed"
+
+================================================================================
+WHAT TO POINT AT DURING DEMO:
+================================================================================
+
+Segment 1:
+  → Sender address line
+  → Recipient address line
+  → Direct arrow connection (Alice → Bob)
+  → Privacy score: 0/100
+
+Segment 3:
+  → Each HOP section
+  → "48 possible paths" for each hop
+  → The math: 48 → 2,304 → 110,592 → 5,308,416
+
+Segment 4:
+  → maxHops: 4
+  → fakeSplitsPerHop: 44
+  → MAXIMUM_PRIVACY
+
+Segment 5:
+  → Left column: Direct Transfer (all ✅)
+  → Right column: BlackoutSOL (all ❌ hidden)
+  → Anonymity Set row (1 vs 5.3M)
+  → Privacy Score row (0/100 vs 94/100)
+
+Segment 6:
+  → HOP 1 section (48 paths)
+  → HOP 2 section (mixed sources)
+  → HOP 3 section (timing randomized)
+  → HOP 4 section (final destination)
+  → The [????] arrow diagram
+
+================================================================================
+PACING GUIDE:
+================================================================================
+
+Segments 1-2: SLOW (30-45 seconds per section)
+  → Let people understand the PROBLEM
+  → Show concern, seriousness
+
+Segments 3-4: MEDIUM (1-1.5 minutes per section)
+  → Build momentum toward the SOLUTION
+  → Emphasize the key innovation
+
+Segments 5-6: MEDIUM-SLOW (1-1.5 minutes per section)
+  → This is the "wow" moment
+  → Let numbers speak for themselves
+  → Pause after "5.3 million"
+
+Segment 7: NORMAL (confident, wrap-up tone)
+  → Quick recap
+  → Clear takeaway
+  → Strong close
+
+================================================================================
+THINGS TO SAY (naturally, not as script):
+================================================================================
+
+✓ "Here's the problem..."
+✓ "Watch what happens when..."
+✓ "Notice this is..."
+✓ "This is where it gets interesting..."
+✓ "By the end, there are 5.3 million possible paths"
+✓ "That's the difference between traceable and impossible to trace"
+✓ "For developers, it's just one function call"
+✓ "Privacy becomes the default"
+
+================================================================================
+THINGS NOT TO SAY:
+================================================================================
+
+✗ Don't read the script word-for-word (sounds robotic)
+✗ Don't apologize for showing code (be confident)
+✗ Don't dive into cryptographic proofs (not production-ready anyway)
+✗ Don't claim "impossible to hack" (mention audit in progress)
+✗ Don't say "um" and "like" (edit them out if you do)
+✗ Don't look uncomfortable with the terminal (you know what you're doing)
+
+================================================================================
+IF YOU MESS UP:
+================================================================================
+
+Option 1: Keep going
+  → You can edit out mistakes later
+  → Small stumbles are fine
+
+Option 2: Pause and re-do that section
+  → Stop recording
+  → Start from beginning of section
+  → Splice good takes together
+
+Option 3: Start completely over
+  → It's fine. You'll be more confident.
+  → Your genuine delivery > perfect script reading
+
+================================================================================
+BEFORE YOU PRESS RECORD:
+================================================================================
+
+Checklist:
+  ☐ Terminal is clean
+  ☐ Font is large (14pt+)
+  ☐ Microphone is tested
+  ☐ "npm run demo:video" works
+  ☐ OBS Studio is recording
+  ☐ Red recording indicator is visible
+  ☐ This quick reference is nearby
+  ☐ VIDEO_TALKING_POINTS.md is open
+
+================================================================================
+AFTER YOU STOP RECORDING:
+================================================================================
+
+1. Let video file save completely (~5 seconds)
+2. Play back first 30 seconds to verify audio/video
+3. Save file to: /recordings/zeclipsesol-demo-raw.mp4
+4. Keep raw file, make edits on a copy
+5. Export final version
+6. Upload with title: "BlackoutSOL: Private Transactions on Solana (Demo)"
+
+================================================================================
+THE 30-SECOND SUMMARY (if someone asks what the video is about):
+================================================================================
+
+"Normal blockchain transfers are completely traceable. BlackoutSOL breaks that
+link by routing transfers through 4 hops with 48 paths each, creating 5.3 
+million possible transaction paths. An observer can see every transaction but 
+can't tell which was the real one. It's one API call for developers, so privacy
+becomes the default instead of something specialized. Perfect for payments,
+credentials, any financial data."
+
+================================================================================

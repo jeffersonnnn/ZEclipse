@@ -1,8 +1,8 @@
-# Temporal Obfuscation in BlackoutSOL
+# Temporal Obfuscation in ZEclipse
 
 ## Overview
 
-Temporal obfuscation is a critical privacy enhancement for the BlackoutSOL protocol that prevents timing correlation attacks and significantly increases the effective anonymity set size. By introducing controlled randomness in transaction timing, this feature makes it substantially more difficult for observers to link transfers across multiple hops or to identify related transactions.
+Temporal obfuscation is a critical privacy enhancement for the ZEclipse protocol that prevents timing correlation attacks and significantly increases the effective anonymity set size. By introducing controlled randomness in transaction timing, this feature makes it substantially more difficult for observers to link transfers across multiple hops or to identify related transactions.
 
 ## Core Components
 
@@ -35,7 +35,7 @@ const timeSliceMap = await obfuscator.obfuscateMultiTransfer(transactions, hopIn
 
 ### 3. Adaptive Timing Strategies
 
-BlackoutSOL provides multiple timing strategies that automatically adjust based on transfer characteristics:
+ZEclipse provides multiple timing strategies that automatically adjust based on transfer characteristics:
 
 - **MINIMAL**: Faster transfers with basic timing obfuscation (200ms-2s delays)
 - **STANDARD**: Balanced approach with moderate privacy (500ms-8s delays)
@@ -56,13 +56,13 @@ Delay times aren't just random - they incorporate entropy based on execution pat
 
 ### Anonymity Set Enhancement
 
-The temporal obfuscation system dramatically increases the effective anonymity set size of BlackoutSOL transfers. While the base system already provides an anonymity set of approximately 5.3 million paths (48^4), temporal obfuscation can increase this by a factor of 1-5x depending on the timing strategy used.
+The temporal obfuscation system dramatically increases the effective anonymity set size of ZEclipse transfers. While the base system already provides an anonymity set of approximately 5.3 million paths (48^4), temporal obfuscation can increase this by a factor of 1-5x depending on the timing strategy used.
 
 For example, with the MAXIMUM_PRIVACY strategy, the effective anonymity set increases to over 20 million distinct paths.
 
 ### Resistance to Timing Correlation Attacks
 
-BlackoutSOL's temporal obfuscation provides strong protection against these common timing attacks:
+ZEclipse's temporal obfuscation provides strong protection against these common timing attacks:
 
 1. **Hop-to-Hop Correlation**: By using different delay characteristics for each hop, observers cannot correlate transactions across hops based on timing patterns.
 
@@ -168,6 +168,6 @@ const strategy = connector.getRecommendedTimingStrategy(
 
 ## Conclusion
 
-Temporal obfuscation is a powerful enhancement to BlackoutSOL's privacy guarantees. By preventing timing correlation attacks, it dramatically increases the effective anonymity set size and provides robust protection against advanced blockchain analysis techniques.
+Temporal obfuscation is a powerful enhancement to ZEclipse's privacy guarantees. By preventing timing correlation attacks, it dramatically increases the effective anonymity set size and provides robust protection against advanced blockchain analysis techniques.
 
-When combined with BlackoutSOL's multi-hop architecture, split transactions, and zero-knowledge proofs, temporal obfuscation completes a comprehensive privacy solution that provides state-of-the-art protection for Solana transfers.
+When combined with ZEclipse's multi-hop architecture, split transactions, and zero-knowledge proofs, temporal obfuscation completes a comprehensive privacy solution that provides state-of-the-art protection for Solana transfers.

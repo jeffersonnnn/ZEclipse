@@ -1,8 +1,8 @@
 /**
- * BlackoutSOL DApp Connector
+ * ZEclipse DApp Connector
  * 
  * This module provides integration points for external DApp interfaces to connect
- * with BlackoutSOL's core functionality. It abstracts the internal implementation
+ * with ZEclipse's core functionality. It abstracts the internal implementation
  * details while exposing a clean API for web interfaces to consume.
  * 
  * The connector follows these design principles:
@@ -16,7 +16,7 @@
  */
 
 import { Connection, Keypair, PublicKey, ComputeBudgetProgram, Transaction } from '@solana/web3.js';
-import { BlackoutClient } from '../client/blackout-client';
+import { ZEclipseClient } from '../client/zeclipse-client';
 import { EfficiencyResult, CostBreakdown, calculateEfficiency, calculateBaselineEfficiency } from '../efficiency/cost-efficiency';
 
 /**
@@ -29,7 +29,7 @@ export interface DAppConfig {
   commitment?: 'processed' | 'confirmed' | 'finalized';
   /** Ob Devnet statt Mainnet verwendet werden soll */
   useDevnet?: boolean;
-  /** Programm-ID für die BlackoutSOL-Applikation */
+  /** Programm-ID für die ZEclipse-Applikation */
   programId?: string;
 }
 
@@ -66,9 +66,9 @@ export interface TransferResponse {
 }
 
 /**
- * Error codes specific to BlackoutSOL operations
+ * Error codes specific to ZEclipse operations
  */
-export enum BlackoutErrorCode {
+export enum ZEclipseErrorCode {
   INVALID_RECIPIENT = 'INVALID_RECIPIENT',
   INSUFFICIENT_FUNDS = 'INSUFFICIENT_FUNDS',
   TRANSACTION_FAILED = 'TRANSACTION_FAILED',
@@ -79,15 +79,15 @@ export enum BlackoutErrorCode {
 }
 
 /**
- * BlackoutSOL DApp Connector
+ * ZEclipse DApp Connector
  * 
- * Primary class for DApp interface integration with BlackoutSOL.
+ * Primary class for DApp interface integration with ZEclipse.
  * Provides a clean API for web interfaces while handling all
  * the complexity of anonymous transfers and cost efficiency optimizations.
  */
-export class BlackoutDAppConnector {
+export class ZEclipseDAppConnector {
   private connection: Connection;
-  private blackoutClient: BlackoutClient;
+  private zeclipseClient: ZEclipseClient;
   
   /**
    * Creates a new DApp connector instance
@@ -103,8 +103,8 @@ export class BlackoutDAppConnector {
     // Verwende eine gültige Base58-Programm-ID als Fallback
     const programId = new PublicKey(config.programId || '11111111111111111111111111111111');
     
-    // BlackoutClient mit allen erforderlichen Parametern initialisieren
-    this.blackoutClient = new BlackoutClient(this.connection, tempKeypair, programId);
+    // ZEclipseClient mit allen erforderlichen Parametern initialisieren
+    this.zeclipseClient = new ZEclipseClient(this.connection, tempKeypair, programId);
   }
   
   /**
@@ -115,11 +115,11 @@ export class BlackoutDAppConnector {
     try {
       // Test connection and resolve program addresses
       await this.connection.getVersion();
-      // Note: BlackoutClient may not have an initialize method depending on implementation
+      // Note: ZEclipseClient may not have an initialize method depending on implementation
       // We'll assume it exists for now, but this should be verified with actual client code
       return true;
     } catch (error: any) {
-      console.error('Failed to initialize BlackoutSOL connector:', error);
+      console.error('Failed to initialize ZEclipse connector:', error);
       return false;
     }
   }
@@ -138,7 +138,7 @@ export class BlackoutDAppConnector {
    * Executes an anonymous transfer with optimized cost efficiency
    * 
    * This is the main entry point for DApps to perform anonymous transfers.
-   * It provides full end-to-end anonymity through the BlackoutSOL protocol
+   * It provides full end-to-end anonymity through the ZEclipse protocol
    * with a multi-hop architecture (4 hops) and split-based transaction obfuscation.
    * 
    * Privacy guarantees:
@@ -189,19 +189,19 @@ export class BlackoutDAppConnector {
         return { success: false, error: `Invalid recipient address: ${e.message}`, efficiency: undefined };
       }
       
-      // Set the wallet in the BlackoutClient - update this based on actual BlackoutClient API
-      // this.blackoutClient.setWallet(request.payerKeypair);
+      // Set the wallet in the ZEclipseClient - update this based on actual ZEclipseClient API
+      // this.zeclipseClient.setWallet(request.payerKeypair);
       
       // Calculate optimal compute units based on recipient count
       const computeUnits = this.calculateOptimalComputeUnits(recipientKeys.length);
       
       // Execute the transfer with optimal efficiency settings
-      // BlackoutClient.executeAnonymousTransfer erwartet einen Hauptempfänger und optional zusätzliche Empfänger
+      // ZEclipseClient.executeAnonymousTransfer erwartet einen Hauptempfänger und optional zusätzliche Empfänger
       const primaryRecipient = recipientKeys[0];
       // Alle weiteren Empfänger als zusätzliche Empfänger übergeben
       const additionalRecipients = recipientKeys.slice(1);
       
-      const signature = await this.blackoutClient.executeAnonymousTransfer(
+      const signature = await this.zeclipseClient.executeAnonymousTransfer(
         request.amount,
         primaryRecipient,
         additionalRecipients
@@ -229,15 +229,15 @@ export class BlackoutDAppConnector {
       
     } catch (error: any) {
       // Determine error type and provide appropriate message
-      let errorCode = BlackoutErrorCode.TRANSACTION_FAILED;
+      let errorCode = ZEclipseErrorCode.TRANSACTION_FAILED;
       
       if (error.message && typeof error.message === 'string') {
         if (error.message.includes('insufficient funds')) {
-          errorCode = BlackoutErrorCode.INSUFFICIENT_FUNDS;
+          errorCode = ZEclipseErrorCode.INSUFFICIENT_FUNDS;
         } else if (error.message.includes('invalid address')) {
-          errorCode = BlackoutErrorCode.INVALID_RECIPIENT;
+          errorCode = ZEclipseErrorCode.INVALID_RECIPIENT;
         } else if (error.message.includes('proof generation')) {
-          errorCode = BlackoutErrorCode.PROOF_GENERATION_FAILED;
+          errorCode = ZEclipseErrorCode.PROOF_GENERATION_FAILED;
         }
       }
       
@@ -311,7 +311,7 @@ export class BlackoutDAppConnector {
   }
   
   /**
-   * Get the anonymity set size for a BlackoutSOL transfer
+   * Get the anonymity set size for a ZEclipse transfer
    * 
    * @param includeHops Whether to include the effect of multi-hop architecture
    * @returns Anonymity set size

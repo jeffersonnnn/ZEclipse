@@ -1,5 +1,5 @@
 /**
- * BlackoutSOL Terminal Dashboard for Cost Efficiency
+ * ZEclipse Terminal Dashboard for Cost Efficiency
  * 
  * This module provides a simple, visual representation of cost efficiency metrics
  * in the terminal without external dependencies.

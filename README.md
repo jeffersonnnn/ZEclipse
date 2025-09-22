@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="docs/assets/BlackoutSOL.png" alt="BlackoutSOL Logo" width="300" />
+  <img src="docs/assets/ZEclipse.png" alt="ZEclipse Logo" width="300" />
 
-  <h1>BlackoutSOL</h1>
+  <h1>ZEclipse</h1>
   <p><strong>Advanced Privacy Layer for Solana Transactions</strong></p>
 
   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -9,13 +9,13 @@
   [![Tests](https://img.shields.io/badge/tests-passing-brightgreen)](#)
 </div>
 
-# BlackoutSOL - Privacy for Solana
+# ZEclipse - Privacy for Solana
 
-BlackoutSOL is an advanced privacy layer for Solana that enables fully private and untraceable transactions on the world's fastest blockchain. Unlike traditional mixer-based approaches, BlackoutSOL leverages Zero-Knowledge Proofs (ZKPs) and multi-hop transaction architecture to break the linkability between senders and receivers while preserving Solana's speed and cost advantages.
+ZEclipse is an advanced privacy layer for Solana that enables fully private and untraceable transactions on the world's fastest blockchain. Unlike traditional mixer-based approaches, ZEclipse leverages Zero-Knowledge Proofs (ZKPs) and multi-hop transaction architecture to break the linkability between senders and receivers while preserving Solana's speed and cost advantages.
 
 ### Core Anonymization Concept
 
-BlackoutSOL achieves privacy through a unique combination of techniques:
+ZEclipse achieves privacy through a unique combination of techniques:
 
 1. **Transaction Graph Obfuscation**: Funds travel through multiple intermediate accounts (hops), with each hop splitting and recombining transactions across different paths. This breaks the direct transaction graph that would normally be visible on-chain.
 
@@ -25,7 +25,7 @@ BlackoutSOL achieves privacy through a unique combination of techniques:
    - Recipient identity (masked through Merkle proofs)
    - Transaction relationships (disguised through split mechanism)
 
-3. **Temporal Obfuscation**: Unlike other privacy solutions, BlackoutSOL implements advanced timing strategies that prevent correlation through transaction timing analysis, a common weakness in other systems.
+3. **Temporal Obfuscation**: Unlike other privacy solutions, ZEclipse implements advanced timing strategies that prevent correlation through transaction timing analysis, a common weakness in other systems.
 
 4. **Non-Interactive Verification**: All verifications happen on-chain without requiring user interaction after initial setup, leveraging Solana's computational efficiency.
 
@@ -90,7 +90,7 @@ BlackoutSOL achieves privacy through a unique combination of techniques:
 
 ## 📊 Privacy Comparison & Theoretical Guarantees
 
-| Feature | Traditional Solana Transfers | Mixer-Based Solutions | BlackoutSOL |
+| Feature | Traditional Solana Transfers | Mixer-Based Solutions | ZEclipse |
 |---------|------------------------------|----------------------|-------------|
 | **Transaction Graph Privacy** | ❌ Completely Traceable | ✅ Basic Obfuscation | ✅✅ Multi-Hop & Split Obfuscation (4 hops x 4-48 splits) |
 | **Timing Attack Resistance** | ❌ No Protection | ⚠️ Basic Delay Only | ✅✅ Advanced Temporal Obfuscation with 4 Strategies |
@@ -105,7 +105,7 @@ BlackoutSOL achieves privacy through a unique combination of techniques:
 
 ## ⚠️ Development Status
 
-BlackoutSOL is currently in **BETA** stage. All core privacy features are implemented and thoroughly tested, but we recommend caution when using in production environments.
+ZEclipse is currently in **BETA** stage. All core privacy features are implemented and thoroughly tested, but we recommend caution when using in production environments.
 
 - ✅ Multi-hop Transaction Architecture: **FULLY IMPLEMENTED**
 - ✅ Zero-Knowledge Proof Verification: **FULLY IMPLEMENTED**
@@ -118,10 +118,10 @@ BlackoutSOL is currently in **BETA** stage. All core privacy features are implem
 
 ### Zero-Knowledge Privacy Architecture
 
-BlackoutSOL achieves complete transaction privacy through a sophisticated multi-stage cryptographic process:
+ZEclipse achieves complete transaction privacy through a sophisticated multi-stage cryptographic process:
 
 1. **Transaction Initiation & Split Generation**
-   - Sender initiates a private transfer, depositing funds into the BlackoutSOL program
+   - Sender initiates a private transfer, depositing funds into the ZEclipse program
    - Transaction details are processed through the Poseidon hash function (ZKP-friendly)
    - System creates a `TransferState` account containing encrypted routing information
    - Initial transaction is split into multiple paths (default: 4 real paths + 44 fake paths)
@@ -153,7 +153,7 @@ BlackoutSOL achieves complete transaction privacy through a sophisticated multi-
 
 ### Zero-Knowledge Proof Foundation
 
-BlackoutSOL uses several advanced cryptographic primitives for its privacy guarantees:
+ZEclipse uses several advanced cryptographic primitives for its privacy guarantees:
 
 ```rust
 // Zero-Knowledge Range Proof Verification (excerpt from utils.rs)
@@ -174,10 +174,10 @@ pub fn verify_range_proof(proof_data: &[u8; 128], commitments: &[[u8; 32]; 8], c
 
 ### SDK Integration Example
 
-Developers can easily integrate BlackoutSOL privacy into their applications:
+Developers can easily integrate ZEclipse privacy into their applications:
 
 ```typescript
-import { TimingEnhancedConnector } from '@blackoutsol/sdk';
+import { TimingEnhancedConnector } from '@zeclipsesol/sdk';
 
 // Create a privacy-enhanced connector with temporal obfuscation
 const connector = new TimingEnhancedConnector({
@@ -204,7 +204,7 @@ console.log(`Temporal entropy score: ${privacyStats.entropyScore}/100`);
 
 ### Theoretical Privacy Bounds
 
-BlackoutSOL provides cryptographically-backed privacy with these theoretical bounds:
+ZEclipse provides cryptographically-backed privacy with these theoretical bounds:
 
 - **Anonymity Set Size**: 5.3M possible paths (48⁴) with default settings
 - **Temporal Entropy**: 87-95 bits of entropy with MAXIMUM_PRIVACY settings
@@ -213,7 +213,7 @@ BlackoutSOL provides cryptographically-backed privacy with these theoretical bou
 
 ## 📊 Protocol Architecture & Zero-Knowledge Implementation
 
-BlackoutSOL's privacy architecture combines several cryptographic components working in concert:
+ZEclipse's privacy architecture combines several cryptographic components working in concert:
 
 ### Cryptographic Core
 
@@ -252,7 +252,7 @@ BlackoutSOL's privacy architecture combines several cryptographic components wor
 
 ### Project Structure
 ```
-BlackoutSOL
+ZEclipse
 ├── app/                  # TypeScript SDK and client applications
 │   ├── src/              # Core SDK implementation
 │   │   ├── connector/    # DApp integration connectors
@@ -260,7 +260,7 @@ BlackoutSOL
 │   │   └── zkp/          # Zero-knowledge proof utilities
 │   └── tests/            # Comprehensive test suite
 ├── programs/             # On-chain Solana programs
-│   └── blackout/         # Main BlackoutSOL program
+│   └── zeclipse/         # Main ZEclipse program
 │       └── src/          # Rust implementation
 ├── DOCUMENTATION.md      # Detailed technical documentation
 └── tools/                # Development and analysis tools

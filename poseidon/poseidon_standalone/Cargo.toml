@@ -1,9 +1,9 @@
 [package]
-name = "blackout_poseidon"
+name = "zeclipse_poseidon"
 version = "0.1.0"
 edition = "2021"
-description = "Standalone Poseidon implementation for BlackoutSOL with clean error handling"
-authors = ["BlackoutSOL Team"]
+description = "Standalone Poseidon implementation for ZEclipse with clean error handling"
+authors = ["ZEclipse Team"]
 
 [dependencies]
 solana-poseidon = "2.2.14"

@@ -1,8 +1,8 @@
-# BlackoutSOL DApp Connector Guide
+# ZEclipse DApp Connector Guide
 
 ## Overview
 
-The BlackoutSOL DApp Connector provides a clean, efficient interface for external web applications to integrate with the BlackoutSOL privacy protocol. It abstracts the complexities of anonymous transfers while exposing a simple API for developers.
+The ZEclipse DApp Connector provides a clean, efficient interface for external web applications to integrate with the ZEclipse privacy protocol. It abstracts the complexities of anonymous transfers while exposing a simple API for developers.
 
 ## Technical Architecture
 
@@ -109,7 +109,7 @@ if (response.error?.includes(BlackoutErrorCode.INSUFFICIENT_FUNDS)) {
 
 ### Current Status
 
-The BlackoutSOL DApp Connector is **80% production ready** with the following considerations:
+The ZEclipse DApp Connector is **80% production ready** with the following considerations:
 
 1. **Core Functionality**: ✅ Complete
    - All transfer methods fully implemented
@@ -150,9 +150,9 @@ The BlackoutSOL DApp Connector is **80% production ready** with the following co
 
 ## Anonymity Comparison
 
-### BlackoutSOL vs. Monero
+### ZEclipse vs. Monero
 
-| Feature | BlackoutSOL | Monero |
+| Feature | ZEclipse | Monero |
 |---------|-------------|--------|
 | **Technology** | Zero-Knowledge Proofs + Multi-Wallet | Ring Signatures + Stealth Addresses |
 | **Anonymity Set** | Limited (6 max recipients) | Large (11+ ring members) |
@@ -162,9 +162,9 @@ The BlackoutSOL DApp Connector is **80% production ready** with the following co
 | **Metadata Protection** | Basic | Advanced |
 | **Chain Analysis Resistance** | Moderate | Strong |
 
-### Is BlackoutSOL Truly Anonymous?
+### Is ZEclipse Truly Anonymous?
 
-BlackoutSOL provides **partial anonymity** with the following characteristics:
+ZEclipse provides **partial anonymity** with the following characteristics:
 
 1. **Strengths**:
    - Transaction amounts are hidden through ZK proofs
@@ -183,7 +183,7 @@ BlackoutSOL provides **partial anonymity** with the following characteristics:
 
 ## User Costs
 
-The cost structure for BlackoutSOL transfers is as follows:
+The cost structure for ZEclipse transfers is as follows:
 
 1. **Base Transaction Fee**: ~0.000005 SOL (5,250 lamports)
    - Solana's standard network fee

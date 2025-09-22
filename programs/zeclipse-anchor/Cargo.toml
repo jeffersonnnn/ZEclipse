@@ -1,0 +1,24 @@
+[package]
+name = "zeclipse-anchor"
+version = "0.1.0"
+description = "Anchor Framework Integration for ZEclipse"
+edition = "2021"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[features]
+default = []
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+anchor-debug = []
+
+[dependencies]
+anchor-lang = "0.29.0"
+zeclipse = { path = "../zeclipse", features = ["no-entrypoint"] }
+
+[dev-dependencies]
+proptest = "1.0.0"

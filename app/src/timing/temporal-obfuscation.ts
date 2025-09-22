@@ -1,10 +1,10 @@
 /**
- * Temporal Obfuscation Module for BlackoutSOL
+ * Temporal Obfuscation Module for ZEclipse
  * 
  * This module provides time-based obfuscation techniques to prevent
  * timing correlation attacks in privacy-enhanced transfers. By introducing
  * controlled randomness in transaction timing, this further enhances
- * the anonymity guarantees of BlackoutSOL's multi-hop architecture.
+ * the anonymity guarantees of ZEclipse's multi-hop architecture.
  */
 
 import { PublicKey, Connection, TransactionInstruction, Transaction } from '@solana/web3.js';
@@ -59,7 +59,7 @@ interface ExecutionTimeRecord {
 }
 
 /**
- * Temporal obfuscation manager for BlackoutSOL transactions
+ * Temporal obfuscation manager for ZEclipse transactions
  */
 export class TemporalObfuscationManager {
   private config: TemporalObfuscationConfig;
@@ -432,7 +432,7 @@ export class TemporalObfuscationManager {
 
 /**
  * The TimeObfuscator class provides a simpler interface to the TemporalObfuscationManager
- * for use in BlackoutSOL transfers.
+ * for use in ZEclipse transfers.
  */
 export class TimeObfuscator {
   private manager: TemporalObfuscationManager;
@@ -451,7 +451,7 @@ export class TimeObfuscator {
   }
   
   /**
-   * Obfuscate the timing of a BlackoutSOL transfer
+   * Obfuscate the timing of a ZEclipse transfer
    * 
    * This method applies temporal obfuscation to the specified transaction
    * using the configured time-based privacy enhancements.
@@ -468,7 +468,7 @@ export class TimeObfuscator {
   }
   
   /**
-   * Obfuscate the timing of a multi-recipient BlackoutSOL transfer
+   * Obfuscate the timing of a multi-recipient ZEclipse transfer
    * 
    * This method applies advanced temporal obfuscation to multi-recipient
    * transfers, distributing them across time slices for maximum privacy.

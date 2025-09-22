@@ -1,13 +1,13 @@
-# BlackoutSOL Poseidon Standalone
+# ZEclipse Poseidon Standalone
 
 *Zuletzt aktualisiert: 15. Mai 2025*
 
-Eine robuste, eigenständige Implementierung der Poseidon-Hash-Funktionalität für das BlackoutSOL-Projekt, die unabhängig vom Anchor-Framework funktioniert und gleichzeitig eine optionale Anchor-Integrationsschicht bietet.
+Eine robuste, eigenständige Implementierung der Poseidon-Hash-Funktionalität für das ZEclipse-Projekt, die unabhängig vom Anchor-Framework funktioniert und gleichzeitig eine optionale Anchor-Integrationsschicht bietet.
 
 ## Status
 
 ✅ **Vollständig implementiert** - Die Bibliothek ist vollständig funktionsfähig und alle Tests laufen erfolgreich.
-✅ **In BlackoutSOL integriert** - Das eigenständige Paket wird erfolgreich in der BlackoutSOL-Anwendung verwendet.
+✅ **In ZEclipse integriert** - Das eigenständige Paket wird erfolgreich in der ZEclipse-Anwendung verwendet.
 
 ## Motivation
 
@@ -32,14 +32,14 @@ Nach intensiver Analyse der Integrationsprobleme zwischen Poseidon-Hashing und d
 ### Standalone Modus
 
 ```rust
-use blackout_poseidon::{hash, constants, PoseidonError};
+use zeclipse_poseidon::{hash, constants, PoseidonError};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Parameter validieren
     hash::validate_parameters()?;
     
     // Hash berechnen
-    let input = b"BlackoutSOL secure input";
+    let input = b"ZEclipse secure input";
     let hash_result = hash::generate_hash(&[input])?;
     println!("Hash Ergebnis: {}", hex::encode(hash_result));
     
@@ -64,14 +64,14 @@ Aktivieren Sie das `anchor_compat`-Feature in Cargo.toml:
 
 ```toml
 [dependencies]
-blackout_poseidon = { path = "../poseidon_standalone", features = ["anchor_compat"] }
+zeclipse_poseidon = { path = "../poseidon_standalone", features = ["anchor_compat"] }
 ```
 
 Dann im Anchor-Programmcode:
 
 ```rust
 use anchor_lang::prelude::*;
-use blackout_poseidon::anchor as poseidon;
+use zeclipse_poseidon::anchor as poseidon;
 
 #[program]
 mod my_program {
@@ -87,16 +87,16 @@ mod my_program {
 }
 ```
 
-## Integration mit BlackoutSOL
+## Integration mit ZEclipse
 
 ### Option 1: Direkte Nutzung
 
 ```rust
-// In BlackoutSOL-Programmen außerhalb von Anchor
-use blackout_poseidon::hash;
+// In ZEclipse-Programmen außerhalb von Anchor
+use zeclipse_poseidon::hash;
 
 fn process_data() -> std::result::Result<(), PoseidonError> {
-    let input = b"BlackoutSOL Data";
+    let input = b"ZEclipse Data";
     let hash = hash::generate_hash(&[input])?;
     // Weitere Verarbeitung...
     Ok(())
@@ -108,7 +108,7 @@ fn process_data() -> std::result::Result<(), PoseidonError> {
 ```rust
 // In Anchor-Programmcode
 use anchor_lang::prelude::*;
-use blackout_poseidon::anchor;
+use zeclipse_poseidon::anchor;
 
 #[program]
 fn my_instruction(ctx: Context<MyContext>, data: Vec<u8>) -> Result<()> {

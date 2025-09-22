@@ -1,9 +1,9 @@
 /**
- * Timing Connector for BlackoutSOL
+ * Timing Connector for ZEclipse
  * 
- * This module provides integration between the BlackoutClient and the
+ * This module provides integration between the ZEclipseClient and the
  * temporal obfuscation system, enabling seamless timing privacy for
- * all BlackoutSOL transfers.
+ * all ZEclipse transfers.
  */
 
 import { Connection, Transaction, TransactionInstruction } from '@solana/web3.js';
@@ -72,8 +72,8 @@ const STRATEGY_CONFIGS: Record<TimingStrategy, TemporalObfuscationConfig> = {
 };
 
 /**
- * Provides integration between BlackoutClient and temporal obfuscation.
- * This component enables advanced timing privacy features in BlackoutSOL
+ * Provides integration between ZEclipseClient and temporal obfuscation.
+ * This component enables advanced timing privacy features in ZEclipse
  * transfers by applying temporal obfuscation techniques.
  */
 export class TimingConnector {
@@ -109,7 +109,7 @@ export class TimingConnector {
   }
   
   /**
-   * Apply timing obfuscation to a BlackoutSOL transfer
+   * Apply timing obfuscation to a ZEclipse transfer
    * 
    * @param transaction Transaction to obfuscate
    * @param hopIndex Current hop index (0-3)
@@ -135,7 +135,7 @@ export class TimingConnector {
   }
   
   /**
-   * Apply timing obfuscation to a multi-recipient BlackoutSOL transfer
+   * Apply timing obfuscation to a multi-recipient ZEclipse transfer
    * 
    * @param transactions Array of transactions (one per recipient)
    * @param hopIndex Current hop index (0-3)

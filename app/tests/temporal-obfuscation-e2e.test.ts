@@ -1,5 +1,5 @@
 /**
- * End-to-End Tests for the Temporal Obfuscation System in BlackoutSOL
+ * End-to-End Tests for the Temporal Obfuscation System in ZEclipse
  * 
  * These tests verify that the temporal obfuscation components function correctly
  * in real-world scenarios with complete transaction flow through the system.
@@ -21,7 +21,7 @@ import {
 import { 
   TimingEnhancedConnector 
 } from '../src/connector/timing-enhanced-connector';
-import { BlackoutDAppConnector } from '../src/connector/dapp-connector';
+import { ZEclipseDAppConnector } from '../src/connector/dapp-connector';
 
 // Mock certain Solana functionality to avoid real blockchain interactions
 // while maintaining enough realism for E2E testing
@@ -382,7 +382,7 @@ describe('Temporal Obfuscation E2E Tests', () => {
         }
       );
       
-      // Executes a multi-recipient transfer through the BlackoutSOL system
+      // Executes a multi-recipient transfer through the ZEclipse system
       await testConnector.executeMultiTransfer({
         senderKeypair, 
         recipients: recipients,  // Recipients are already PublicKey objects

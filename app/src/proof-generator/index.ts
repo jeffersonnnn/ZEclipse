@@ -3,7 +3,7 @@ import { HyperPlonk, ProofComponent } from './hyperplonk';
 import { Plonky2 } from './plonky2';
 import { Poseidon2 } from './poseidon2';
 
-export class BlackoutProofGenerator {
+export class ZEclipseProofGenerator {
   private hyperPlonk: HyperPlonk;
   private plonky2: Plonky2;
   private poseidon2: Poseidon2;

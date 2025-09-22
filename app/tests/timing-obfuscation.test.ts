@@ -1,8 +1,8 @@
 /**
- * Tests for the Temporal Obfuscation module for BlackoutSOL
+ * Tests for the Temporal Obfuscation module for ZEclipse
  * 
  * These tests verify that the temporal obfuscation components function
- * correctly and provide the expected privacy guarantees for BlackoutSOL
+ * correctly and provide the expected privacy guarantees for ZEclipse
  * transfers.
  */
 
@@ -248,7 +248,7 @@ describe('Temporal Obfuscation', () => {
     });
     
     test('calculateEnhancedAnonymitySet should increase anonymity set size', () => {
-      // Base anonymity set for BlackoutSOL is 48^4 = 5,308,416
+      // Base anonymity set for ZEclipse is 48^4 = 5,308,416
       const baseAnonymitySet = 5308416;
       
       // Get enhanced anonymity set

@@ -1,10 +1,10 @@
-# BlackoutSOL Technical Documentation
+# ZEclipse Technical Documentation
 
 ## Core Architecture and Efficiency Optimizations
 
 ### System Overview
 
-BlackoutSOL is a privacy-focused protocol for Solana that enables anonymous transfers while maintaining maximum cost efficiency. The system implements several key optimizations to reduce transaction costs and increase the percentage of funds that reach the recipient.
+ZEclipse is a privacy-focused protocol for Solana that enables anonymous transfers while maintaining maximum cost efficiency. The system implements several key optimizations to reduce transaction costs and increase the percentage of funds that reach the recipient.
 
 ### Key Components
 
@@ -36,7 +36,7 @@ BlackoutSOL is a privacy-focused protocol for Solana that enables anonymous tran
 
 ### Cost Efficiency Optimization Techniques
 
-BlackoutSOL implements the following efficiency optimizations to maximize transfer cost efficiency:
+ZEclipse implements the following efficiency optimizations to maximize transfer cost efficiency:
 
 #### 1. Optimized Account Management
 
@@ -156,7 +156,7 @@ The optimized implementation achieves:
 
 ### Overview
 
-The `dapp-connector.ts` module provides a clean API for external web interfaces to interact with the BlackoutSOL protocol. It handles all the complexities of anonymous transfers while exposing only what external applications need.
+The `dapp-connector.ts` module provides a clean API for external web interfaces to interact with the ZEclipse protocol. It handles all the complexities of anonymous transfers while exposing only what external applications need.
 
 ### Integration Steps
 
@@ -234,7 +234,7 @@ if (response.error && response.error.includes(BlackoutErrorCode.INSUFFICIENT_FUN
 
 ### Privacy Guarantees
 
-BlackoutSOL implements the following privacy features:
+ZEclipse implements the following privacy features:
 
 1. **Zero-Knowledge Proofs**
    - Transfers use ZK proofs to hide the connection between sender and recipient

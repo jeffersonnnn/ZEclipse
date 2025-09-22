@@ -1,4 +1,4 @@
-# Compilation Instructions for BlackoutSOL
+# Compilation Instructions for ZEclipse
 
 ## Overview of Changes
 

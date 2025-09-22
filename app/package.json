@@ -1,5 +1,5 @@
 {
-  "name": "blackout-sol",
+  "name": "zeclipse",
   "version": "0.1.0",
   "description": "Privacy-Payment System for Solana",
   "main": "dist/index.js",
@@ -8,7 +8,13 @@
     "build": "tsc",
     "start": "node dist/client/cli.js",
     "dev": "ts-node src/client/cli.ts",
-    "test": "jest"
+    "test": "jest",
+    "demo:video": "ts-node src/demos/demo-video.ts",
+    "demo:architecture": "ts-node src/demos/demo-architecture.ts",
+    "demo:routing": "ts-node src/demos/demo-multi-hop.ts",
+    "demo:temporal": "ts-node src/demos/demo-temporal.ts",
+    "demo:privacy": "ts-node src/demos/demo-privacy-comparison.ts",
+    "demo:all": "npm run demo:architecture && npm run demo:routing && npm run demo:temporal && npm run demo:privacy"
   },
   "dependencies": {
     "@project-serum/anchor": "^0.26.0",

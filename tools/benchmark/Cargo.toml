@@ -1,5 +1,5 @@
 [package]
-name = "blackout-benchmark"
+name = "zeclipse-benchmark"
 version = "0.1.0"
 edition = "2021"
 description = "Benchmark tools for BlackoutSOL rent efficiency"
@@ -10,7 +10,7 @@ anchor-lang = "0.27.0"
 solana-program = "1.14.17"
 solana-program-test = "1.14.17"
 solana-sdk = "1.14.17"
-blackout = { path = "../../programs/blackout", features = ["no-entrypoint"] }
+zeclipse = { path = "../../programs/zeclipse", features = ["no-entrypoint"] }
 tokio = { version = "1.28.1", features = ["full"] }
 
 [[bin]]

@@ -1,10 +1,10 @@
-# BlackoutSOL Client Library and DApp Connector
+# ZEclipse Client Library and DApp Connector
 
-This directory contains the TypeScript client library and DApp connector for BlackoutSOL - a privacy-enhanced transaction protocol for Solana.
+This directory contains the TypeScript client library and DApp connector for ZEclipse - a privacy-enhanced transaction protocol for Solana.
 
 ## Overview
 
-BlackoutSOL provides anonymous transfers on Solana with:
+ZEclipse provides anonymous transfers on Solana with:
 - **Multi-Hop Architecture**: 4 sequential hops that break transaction traceability
 - **Split Mechanism**: Each hop splits funds into 4 real transfers + 44 fake transfers
 - **Zero-Knowledge Proofs**: For integrity verification without revealing sensitive data
@@ -13,15 +13,15 @@ BlackoutSOL provides anonymous transfers on Solana with:
 ## Installation
 
 ```bash
-npm install @blackoutsol/client
+npm install @zeclipse/client
 ```
 
 ## DApp Connector Usage
 
-The DApp connector provides a clean API for web applications to integrate with BlackoutSOL:
+The DApp connector provides a clean API for web applications to integrate with ZEclipse:
 
 ```typescript
-import { BlackoutDAppConnector, DAppConfig } from '@blackoutsol/client';
+import { ZEclipseDAppConnector, DAppConfig } from '@zeclipse/client';
 
 // 1. Initialize connector
 const config: DAppConfig = {
@@ -30,7 +30,7 @@ const config: DAppConfig = {
   useDevnet: false // Set to true for devnet
 };
 
-const connector = new BlackoutDAppConnector(config);
+const connector = new ZEclipseDAppConnector(config);
 await connector.initialize();
 
 // 2. Execute anonymous transfer
@@ -73,7 +73,7 @@ console.log(`Anonymity set size: ${anonymitySetSize.toLocaleString()}`);
 
 ## Privacy Guarantees
 
-BlackoutSOL provides:
+ZEclipse provides:
 
 - **Sender Privacy**: Original sender cannot be linked to final recipients
 - **Recipient Privacy**: Final recipients cannot be linked to original sender

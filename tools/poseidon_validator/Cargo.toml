@@ -1,5 +1,5 @@
 [package]
-name = "blackout_poseidon_validator"
+name = "zeclipse_poseidon_validator"
 version = "0.1.0"
 description = "Validierungstool für Poseidon-Parameter in BlackoutSOL"
 edition = "2021"
