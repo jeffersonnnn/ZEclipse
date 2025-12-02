@@ -30,7 +30,7 @@ npm run dev  # Run CLI with ts-node
 - **poseidon_standalone**: Custom Poseidon hash implementation (ZKP-friendly)
 - **poseidon_validator**: Validation and testing for Poseidon
 
-**Key Dependencies**: Anchor 0.28.0, solana-program 1.18.26, solana-poseidon 2.2.14, @solana/web3.js 1.73.0
+**Key Dependencies**: Anchor 0.29.0, solana-program 1.18.26, solana-poseidon 2.2.14, @solana/web3.js 1.73.0
 
 ## Code Style & Conventions
 
